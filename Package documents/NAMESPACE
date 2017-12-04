@@ -1,0 +1,5 @@
+exportPattern("^[[:alpha:]]+")
+importFrom("rcrossref", "cr_cn")
+importFrom("rmarkdown", "render")
+importFrom("rmarkdown", "render")
+importFrom("gmailr", "mime", "create_draft", "send_message")

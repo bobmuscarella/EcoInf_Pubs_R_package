@@ -1,0 +1,10 @@
+Package: EcoinfPubsRpackage
+Type: Package
+Title: Create reports of publications from the Ecoinformatics Publications Database
+Version: 1.0
+Date: 2017-11-27
+Author: Robert Muscarella
+Maintainer: Robert Muscarella <bob.muscarella@gmail.com>
+Description: Create reports of publications from the Ecoinformatics Publications Database
+License: GPL-3
+Depends: rcrossref, gsheet, rmarkdown, gmailr

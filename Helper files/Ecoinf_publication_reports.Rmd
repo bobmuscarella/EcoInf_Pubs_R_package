@@ -1,0 +1,90 @@
+---
+output:
+  word_document:
+    reference_docx: word-styles-reference.docx
+---
+
+```{r r0, echo=FALSE, results='asis'}
+load(file="tmp_refs.RData")
+```
+
+---
+title: "Ecoinformatics publications list"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, results='asis')
+```
+
+
+```{r d1}
+d1 <- paste('Current report:', pubs$current.report.file[1])
+
+mytext <- paste0("\n", d1)
+
+mycat <- function(text){
+  cat(gsub(pattern = "\n", replacement = "\n 
+", x = text))
+}
+cat(mycat(mytext))
+```
+
+
+
+```{r d2}
+d2 <- paste('Previous report:', pubs$previous.report.file[1])
+
+mytext <- paste0("\n", d2)
+
+mycat <- function(text){
+  cat(gsub(pattern = "\n", replacement = "\n 
+", x = text))
+}
+cat(mycat(mytext))
+```
+
+
+## Accepted this month:
+```{r r1}
+r1 <- pubs$citation[pubs$group %in% "NewlyAccepted"]
+
+mytext <- paste0("\n", paste(sort(r1), collapse="\n"))
+
+mycat <- function(text){
+  cat(gsub(pattern = "\n", replacement = "\n 
+", x = text))
+}
+cat(mycat(mytext))
+```
+
+
+## Submitted
+```{r r2}
+r2 <- pubs$citation[pubs$group %in% "Submitted"]
+
+mytext <- paste0("\n", paste(sort(r2), collapse="\n"))
+
+mycat <- function(text){
+  cat(gsub(pattern = "\n", replacement = "\n 
+", x = text))
+}
+cat(mycat(mytext))
+```
+
+
+
+## Accepted year to date
+```{r r3}
+r3 <- pubs$citation[pubs$group %in% "OldAccepted"]
+
+mytext <- paste0("\n", paste(sort(r3), collapse="\n"))
+
+mycat <- function(text){
+  cat(gsub(pattern = "\n", replacement = "\n 
+", x = text))
+}
+cat(mycat(mytext))
+```
+
