@@ -23,8 +23,6 @@ setwd("/Users/au529793/Desktop/EcoInf_publications_archive/")
 
 
 ### Install and load the EcoInf Pubs R pacakge
-library(devtools)
-devtools::install_github("bobmuscarella/EcoInf_Pubs_R_package", ref="googlesheets4")
 install.packages("package/EcoinfPubsRpackage_2.0.tar.gz", repos=NULL, type="source")
 library(EcoinfPubsRpackage)
 
