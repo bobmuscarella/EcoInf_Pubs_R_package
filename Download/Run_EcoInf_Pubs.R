@@ -3,17 +3,29 @@
 setwd("/Users/au529793/Desktop/EcoInf_publications_archive/")
 
 
-### Run this code to generate an initial archive of pending papers:
-install.packages("gsheet")
-library(gsheet)
-url <- "https://docs.google.com/spreadsheets/d/1k_Jyejd4f7E7PWbK9OHI5gkmSOymlfyA54hIfOpIm6g/edit?usp=sharing"
-pubs <- read.csv(text=gsheet2text2(url, format="csv"), stringsAsFactors=FALSE, row.names=NULL)
-filename <- paste0("archive/EcoInf_publications_", Sys.Date(), ".csv")
-write.csv(pubs, file=filename, row.names=F)
+# ### Run this code to generate an initial archive of pending papers:
+# install.packages("googlesheets4")
+# library(googlesheets4)
+# url <- "https://docs.google.com/spreadsheets/d/1k_Jyejd4f7E7PWbK9OHI5gkmSOymlfyA54hIfOpIm6g/edit?usp=sharing"
+# pubs <- googlesheets4::read_sheet(url)
+# names(pubs) <- c("Timestamp",
+#                  "Ecoinf.names",
+#                  "Contact.Email",
+#                  "Author.list",
+#                  "Title.of.Publication",
+#                  "Name.of.Journal.Book",
+#                  "Status",
+#                  "Publication.type",
+#                  "DOI",
+#                  "X")
+# filename <- paste0("archive/EcoInf_publications_", Sys.Date(), ".csv")
+# write.csv(pubs, file=filename, row.names=F)
 
 
 ### Install and load the EcoInf Pubs R pacakge
-install.packages("package/EcoinfPubsRpackage_1.0.tar.gz", repos=NULL, type="source")
+library(devtools)
+devtools::install_github("bobmuscarella/EcoInf_Pubs_R_package", ref="googlesheets4")
+install.packages("package/EcoinfPubsRpackage_2.0.tar.gz", repos=NULL, type="source")
 library(EcoinfPubsRpackage)
 
 

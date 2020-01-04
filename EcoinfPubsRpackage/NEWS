@@ -1,0 +1,5 @@
+Version 2
+- Updated from 'gsheets' to 'googlesheets4' package for accessing the googlesheet to comply with new googlesheets4 api.
+
+Version 1
+- No news is good news.

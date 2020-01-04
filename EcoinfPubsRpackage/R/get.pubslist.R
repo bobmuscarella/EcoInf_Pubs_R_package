@@ -1,6 +1,6 @@
 get.pubslist <-
 function(url="", ArchivePath="archive/"){
-  require(gsheet)
+  require(googlesheets4)
   require(rmarkdown)
   
 ### Set URL for the GoogleSheet
@@ -9,7 +9,18 @@ if(url %in% "") {
 }
 
 ### Read and save the google sheet and archive with today's date
-pubs <- read.csv(text=gsheet2text2(url, format="csv"), stringsAsFactors=FALSE, row.names=NULL)
+pubs <- googlesheets4::read_sheet(url)
+names(pubs) <- c("Timestamp",
+                 "Ecoinf.names",
+                 "Contact.Email",
+                 "Author.list",
+                 "Title.of.Publication",
+                 "Name.of.Journal.Book",
+                 "Status",
+                 "Publication.type",
+                 "DOI",
+                 "X")
+# pubs <- read.csv(text=gsheet2text2(url, format="csv"), stringsAsFactors=FALSE, row.names=NULL)
 filename <- paste0("EcoInf_publications_", Sys.Date(), ".csv")
 write.csv(pubs, file=paste0(ArchivePath, filename), row.names=F)
 
@@ -28,6 +39,7 @@ if(nrow(pubs) > 0){
   
   pubs$citation <- make.citations(pubs)
   
+  pubs$group <- NA
   pubs$group[pubs$Status %in% "Accepted" & is.na(pubs$Status0)] <- "NewlyAccepted"
   pubs$group[pubs$Status %in% "Accepted" & pubs$Status0 %in% "Accepted"] <- "OldAccepted"
   pubs$group[pubs$Status %in% "Submitted"] <- "Submitted"
