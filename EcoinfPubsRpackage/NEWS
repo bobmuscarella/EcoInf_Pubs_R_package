@@ -1,0 +1,8 @@
+Version 2.1
+- Some bug fixes and repairs for the function of 'googlesheets4' and 'rcrossref'.
+
+Version 2
+- Updated from 'gsheets' to 'googlesheets4' package for accessing the googlesheet to comply with new googlesheets4 api.
+
+Version 1
+- No news is good news.

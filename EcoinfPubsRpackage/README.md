@@ -21,17 +21,17 @@ setwd(".../EcoInf_publications_archive/")
 
 6. Run the following code to generate an initial archive of pending papers (i.e., those entered in step 1):
 ``` r
-install.packages("gsheet")
-library(gsheet)
+install.packages("googlesheets4")
+library(googlesheets4)
 url <- "https://docs.google.com/spreadsheets/d/1k_Jyejd4f7E7PWbK9OHI5gkmSOymlfyA54hIfOpIm6g/edit?usp=sharing"
-pubs <- read.csv(text=gsheet2text2(url, format="csv"), stringsAsFactors=FALSE, row.names=NULL)
+pubs <- as.data.frame(read_sheet(url))
 filename <- paste0("archive/EcoInf_publications_", Sys.Date(), ".csv")
 write.csv(pubs, file=filename, row.names=F)
 ```
 
 7. Install and load the EcoInf Pubs R package:
 ```
-install.packages("package/EcoinfPubsRpackage_1.0.tar.gz", repos=NULL, type="source")
+install.packages("package/EcoinfPubsRpackage_2.0.tar.gz", repos=NULL, type="source")
 library(EcoinfPubsRpackage)
 ```
 
