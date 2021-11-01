@@ -1,7 +1,7 @@
 Package: EcoinfPubsRpackage
 Type: Package
 Title: Create reports of publications from the Ecoinformatics Publications Database
-Version: 2.0
+Version: 2.1
 Date: 2020-01-04
 Author: Robert Muscarella
 Maintainer: Robert Muscarella <bob.muscarella@gmail.com>
