@@ -29,7 +29,7 @@ write.csv(pubs, file=filename, row.names=F)
 ```
 
 7. Install and load the EcoInf Pubs R package:
-```
+``` r
 install.packages("package/EcoinfPubsRpackage_2.1.tar.gz", repos=NULL, type="source")
 library(EcoinfPubsRpackage)
 ```
